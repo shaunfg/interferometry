@@ -11,7 +11,7 @@ import pylab as pl
 # tell it what file to open
 #fname ='white_led_centre_farback.txt'
 #fname = 'Output_data.txt'
-fname = 'blue_LED.txt'
+fname = 'white_light.txt'
 
 
 f=open(fname,'r')

@@ -6,39 +6,39 @@ Created on Tue Jan 22 14:03:28 2019
 """
 
 import numpy as np
-from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
-import random
+from scipy.signal import hilbert,chirp
 
 # Define some test data which is close to Gaussian
-file = 'white_led_3_uni.txt'
+fname = 'white_light.txt'
 
-y,t1,t2,x=np.array(read_data(file))
+f = open(fname,'r')
 
-data = random.sample(x,5)
+signal=[]
+t_sec=[]
+t_usec=[]
+position=[]
 
-n = len(x)                          #the number of data
-mean = sum(x*y)/n                   #note this correction
-sigma = sum(y*(x-mean)**2)/n   
 
-# Define model function to be used to fit to the data above:
-def gauss(x, *p):
-    A, mu, sigma = p
-    return A*numpy.exp(-(x-mu)**2/(2.*sigma**2))
+#read in the data
+lines=f.readlines()
+for line in range(len(lines)):
+    signal.append(lines[line].split()[0])
+    t_sec.append(lines[line].split()[1])
+    t_usec.append(lines[line].split()[2])
+    position.append(lines[line].split()[3])
 
-# p0 is the initial guess for the fitting coefficients (A, mu and sigma above)
-p0 = [1., 0., 1.]
+#data = random.sample(x,5)
 
-coeff, var_matrix = curve_fit(gauss, x, y, p0=p0)
+x = np.array(position)
+y = np.array(signal)
 
-# Get the fitted curve
-hist_fit = gauss(x, *coeff)
+duration = 1.0
+fs = 400.0
+samples = int(fs*duration)
+t = np.arange(samples) / fs
 
-plt.plot(x, y, label='Test data')
-plt.plot(x, hist_fit, label='Fitted data')
+signal = chirp(t, 20.0, t[-1], 100.0)
+signal *= (1.0 + 0.5 * np.sin(2.0*np.pi*3.0*t) )
 
-# Finally, lets get the fitting parameters, i.e. the mean and standard deviation:
-print 'Fitted mean = ', coeff[1]
-print 'Fitted standard deviation = ', coeff[2]
-
-plt.show()
+plt.plot(x,y)
