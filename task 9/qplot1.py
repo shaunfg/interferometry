@@ -13,9 +13,10 @@ import pylab as pl
 #fname = 'white_tungsten.txt'
 #fname = 'blue_LED.txt'
 #fname ='yellow_tungsten_2.txt'
-#fname = 'green_tungsten.txt'
+#fname = 'green_tungstensten.txt'
+fname = 'mercury_6_RL.txt' #4,6,7 are good sets for mercury
 
-fname ='Output_data.txt'
+#fname ='Output_data.txt'
 #
 f=open(fname,'r')
 
