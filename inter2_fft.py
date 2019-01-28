@@ -39,9 +39,6 @@ def calc_amp(nsigma,nsamp):
         size=np.exp(-x*x/4)
         yy[i]=size
     return yy
-  
-
-
 
 
 # Now set up the experiment that you want to do

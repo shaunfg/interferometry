@@ -7,6 +7,7 @@
 
 import numpy as np
 import pylab as pl
+import scipy.fftpack as spf
 
 # tell it what file to open
 #fname ='yellow_tungsten_1.txt'
@@ -50,5 +51,43 @@ pl.ylabel("Signal")
 #pl.plot(x,signal)
 #pl.xlabel("Sample number")
 #pl.ylabel("Signal")
+
+pl.show()
+
+x = position
+y = signal
+nsamp = len(x)
+sampling_speed = 0.0005e-3 #m/s
+dsamp = sampling_speed / 50
+
+# take a fourier transform
+yf=spf.fft(y)
+xf=spf.fftfreq(nsamp) # setting the correct x-axis for the fourier transform. Osciallations/step
+
+#now some shifts to make plotting easier (google if ineterested)
+xf=spf.fftshift(xf)
+yf=spf.fftshift(yf)
+
+
+pl.figure(2)
+pl.plot(xf,np.abs(yf))
+pl.xlabel("Oscillations per sample")
+pl.ylabel("Amplitude")
+
+
+# Now try to reconstruct the original wavelength spectrum
+# only take the positive part of the FT
+# need to go from oscillations per step to steps per oscillation
+# time the step size
+
+
+xx=xf[int(len(xf)/2+1):len(xf)]
+repx=dsamp/xx
+
+pl.figure(3)
+pl.plot(repx,abs(yf[int(len(xf)/2+1):len(xf)]))
+pl.xlabel("Wavelength (m)")
+pl.ylabel("Amplitude")
+
 
 pl.show()
