@@ -120,10 +120,19 @@ def gaus(x,a,x0,sigma):
     return a*np.exp(-(x-x0)**2/(2*sigma**2))
 
 popt,pcov = curve_fit(gaus,x,y,p0=[1,mean,sigma],maxfev=5000)
+#
+# 1548668277 266635  0.700009 322
+# 1548668277 266635  0.700009 322
+#49 1548668277 286679  0.700000 327
+#49 1548668277 286679  0.700000 327
 plt.figure()
 plt.plot(x,np.imag(analytic_signal),label='data') #plots the curve along the y axis
 plt.plot(x,gaus(x,*popt),'r',label='fit')
 plt.legend()
+
+FWHM = 2 * np.sqrt(2 * np.log(2)) * sigma
+
+print "Coherence Length =", FWHM
 
 #%%
 
