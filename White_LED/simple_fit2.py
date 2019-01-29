@@ -5,6 +5,7 @@ import pylab as pl
 import scipy.optimize as spo
 import scipy.fftpack as spf
 import scipy.signal as sps
+import os
 
 ###############################################################################
 ###  This is just a little example fitting program
@@ -62,12 +63,10 @@ def Wiens (wavelength_mean):
     return T
  
 
-#file="white_light_3_uni.txt"
-#file="green_laser_0.002b.txt"
-#file= "tung_y_0.0001_long.txt"
+file="white_led_3_uni.txt"
 #file="Output_data.txt"
 #file = "Hg_green_1.txt"
-file = "Hg_yellow_1.txt"
+#file = "Hg_yellow_1.txt"
 
 y,t1,t2,x=np.array(read_data(file))
 x=np.array(x)

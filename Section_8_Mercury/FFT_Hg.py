@@ -10,17 +10,10 @@ import pylab as pl
 import scipy.fftpack as spf
 
 # tell it what file to open
-#fname ='yellow_tungsten_1.txt'
-#fname = 'white_tungsten.txt'
-#fname = 'blue_LED.txt'
-#fname ='yellow_tungsten_2.txt'
-#fname = 'green_tungstensten.txt'
 #fname = 'mercury_6_RL.txt' #4,6,7 are good sets for mercury
 #fname = 'Hg_green_good.txt'
-fname = 'Hg_yellow_good.txt'
+fname = 'Hg_yellow_good.txt' #shows the beating shown by a yellow doublet
 
-#fname ='Output_data.txt'
-#
 f=open(fname,'r')
 
 ###################################################################################################
@@ -44,8 +37,8 @@ for line in range(len(lines)):
 
 
 pl.plot(position,signal,'g-')
-pl.xlabel("Position in mm")
-pl.ylabel("Signal")
+pl.xlabel("Position / mm")
+pl.ylabel("Signal / a.u.")
 
 # if you had wanted to plot just against sample number
 #x=range(len(signal))
@@ -59,8 +52,7 @@ x = position
 y = signal
 nsamp = len(x)
 sampling_speed = 0.005e-3 #m/s
-dsamp = 2 * sampling_speed / 50 #times two 
-
+dsamp = 2 * sampling_speed / 50 #times two as something due to the path length
 #broadness due to error , work out how to reduce this error
 
 # take a fourier transform
@@ -75,7 +67,7 @@ yf=spf.fftshift(yf)
 pl.figure(2)
 pl.plot(xf,np.abs(yf))
 pl.xlabel("Oscillations per sample")
-pl.ylabel("Amplitude")
+pl.ylabel("Amplitude / a.u.")
 
 
 # Now try to reconstruct the original wavelength spectrum
@@ -90,7 +82,7 @@ repx=dsamp/xx
 pl.figure(3)
 pl.plot(repx,abs(yf[int(len(xf)/2+1):len(xf)]))
 pl.xlabel("Wavelength (m)")
-pl.ylabel("Amplitude")
+pl.ylabel("Amplitude / a.u.")
 
 
 pl.show()

@@ -108,8 +108,6 @@ pl.xlabel("Distance from null point (m)")
 pl.ylabel("Amplitude")
 
 
-
-
 # take a fourier transform
 yf=spf.fft(y)
 xf=spf.fftfreq(nsamp) # setting the correct x-axis for the fourier transform. Osciallations/step
