@@ -16,7 +16,8 @@ import scipy.fftpack as spf
 #fname ='yellow_tungsten_2.txt'
 #fname = 'green_tungstensten.txt'
 #fname = 'mercury_6_RL.txt' #4,6,7 are good sets for mercury
-fname = 'Hg_green_1.txt'
+#fname = 'Hg_green_good.txt'
+fname = 'Hg_yellow_good.txt'
 
 #fname ='Output_data.txt'
 #
@@ -57,8 +58,10 @@ pl.show()
 x = position
 y = signal
 nsamp = len(x)
-sampling_speed = 0.0005e-3 #m/s
-dsamp = sampling_speed / 50
+sampling_speed = 0.005e-3 #m/s
+dsamp = 2 * sampling_speed / 50 #times two 
+
+#broadness due to error , work out how to reduce this error
 
 # take a fourier transform
 yf=spf.fft(y)

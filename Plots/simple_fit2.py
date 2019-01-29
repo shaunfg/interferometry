@@ -66,7 +66,8 @@ def Wiens (wavelength_mean):
 #file="green_laser_0.002b.txt"
 #file= "tung_y_0.0001_long.txt"
 #file="Output_data.txt"
-file = "Hg_green_1.txt"
+#file = "Hg_green_1.txt"
+file = "Hg_yellow_1.txt"
 
 y,t1,t2,x=np.array(read_data(file))
 x=np.array(x)
