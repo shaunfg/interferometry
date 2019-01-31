@@ -11,8 +11,8 @@ import scipy.fftpack as spf
 
 # tell it what file to open
 #fname = 'mercury_6_RL.txt' #4,6,7 are good sets for mercury
-#fname = 'Hg_green_good.txt'
-fname = 'Hg_yellow_good.txt' #shows the beating shown by a yellow doublet
+fname = 'Hg_green_good.txt'
+#fname = 'Hg_yellow_good.txt' #shows the beating shown by a yellow doublet
 
 f=open(fname,'r')
 

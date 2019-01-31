@@ -139,6 +139,11 @@ print("mean wavelength from fit = ",gaus_max_x)
 pl.show()
 
 #%% Analysis ~ Task 9
+#Error in signal and error in position. 
+#Error in signal can multiply by 
+#not a clear way to do error propagation in time. 
+#just chuck on the error on wavelength and comment about the error intensity. 
+
 c = 3e8
 FWHM = 2 * np.sqrt(2 * np.log(2)) * sigma #representing Coherence Length
 spectral_width_freq = c / (2 * np.pi * FWHM)  
@@ -147,7 +152,6 @@ spectral_width_wave = spectral_width_freq * gaus_max_x ** 2 / c
 def Wiens(lamda_peak):
     T = 2.898e-3 / lamda_peak
     return T
-
 
 print ("Coherence Length =", FWHM,"m")
 print("Spectral width of Frequency = ",spectral_width_freq)
