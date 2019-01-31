@@ -1,0 +1,2 @@
+TUNGSTEN: std dev =  0.0 ,mean =  8388607.0
+MERCURY: std dev =  15.2249129777 ,mean =  139.544265155
