@@ -61,12 +61,8 @@ def Wiens (wavelength_mean):
     T = 2.898e-3/wavelength_mean
     return T
  
-
-#file="white_light_3_uni.txt"
-#file="green_laser_0.002b.txt"
-#file= "tung_y_0.0001_long.txt"
-#file="Output_data.txt"
-file = "Hg_green_good.txt" #Hg_... are the newer measurements
+file = "Hg_green_2.txt" #Can see error in motor from this
+#Hg_... are the newer measurements
 #file = "Hg_yellow_12.txt" 
 
 y,t1,t2,x=np.array(read_data(file))

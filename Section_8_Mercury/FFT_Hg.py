@@ -80,9 +80,23 @@ xx=xf[int(len(xf)/2+1):len(xf)]
 repx=dsamp/xx
 
 pl.figure(3)
-pl.plot(repx,abs(yf[int(len(xf)/2+1):len(xf)]))
+pl.plot(repx,abs(yf[int(len(xf)/2+1):len(xf)]),'g-')
 pl.xlabel("Wavelength (m)")
 pl.ylabel("Amplitude / a.u.")
 
 
 pl.show()
+#%% analysis
+
+y = abs(yf[int(len(xf)/2+1):len(xf)])
+y = list(y)
+
+max_y = max(y)
+max_x = repx[y.index(max_y)]
+
+print(max_x,max_y)
+
+err_x = 0.000025e-3
+
+print("wavelength =",max_x, "+/-", err_x, "m")
+print("True Value = 5.461e-7 m")
