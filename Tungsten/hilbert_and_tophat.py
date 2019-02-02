@@ -89,7 +89,7 @@ dsamp = 2 * sampling_speed / 50 #times two as something due to the path length
 
 Fs= 50
 Ts= dsamp/sampling_speed
-t= np.linspace(-1,Ts,100)
+t= np.linspace(-1,Ts,1)
 f=1
 N= nsamp
 
@@ -105,7 +105,6 @@ func_y = beating(t*f, *fit[0])
 
 fy=(spf.fft(func_y,N))
 
-plt.figure()
 fr = np.multiply(np.arange(0,N-1,1),Fs/N)
 plt.plot(fr,spf.fftshift(abs(fy))[:nsamp-1])
 plt.xlabel(' inverse of distance x^{-1}')
@@ -148,13 +147,13 @@ pl.ylabel("Amplitude / a.u.")
 #%%
 Fs=1
 Ts=1/Fs
-t= np.linspace(-1,Ts,100)
+t= np.linspace(-1,Ts,50)
 f=5
 
 #t = np.linspace(-100,100,1000)
 #f = 1 * np.pi
 
-func_y = beating(t*f, *fit[0])
+func_y = y#beating(t*f, *fit[0])
 
 #plt.figure()
 #plt.plot(t,func_y)

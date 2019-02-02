@@ -18,8 +18,8 @@ path = "/Users/ShaunGan/Desktop/interferometry/All_Other_Lights"
 os.chdir(path)
 
 # Define some test data which is close to Gaussian
-#fname = 'blue_LED.txt'
-fname = 'white_tungsten.txt'
+fname = 'blue_LED.txt'
+#fname = 'white_tungsten.txt'
 
 f = open(fname,'r')
 
@@ -71,8 +71,8 @@ popt,pcov = curve_fit(gaus,x,y,p0=[1,mean,sigma],maxfev=100000)
 
 #Plotting
 plt.figure()
-plt.plot(x,np.imag(analytic_signal),label='data') #plots the curve along the y axis
-plt.plot(x,gaus(x,*popt),'r',label='fit')
+plt.plot(x,np.imag(analytic_signal),label='Data') #plots the curve along the y axis
+plt.plot(x,gaus(x,*popt),'r',label='Gaussian Fit')
 plt.plot(x,-gaus(x,*popt),'r')
 pl.xlabel("Position in mm")
 pl.ylabel("Signal (a.u.)")

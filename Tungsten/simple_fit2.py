@@ -64,7 +64,7 @@ def Wiens (wavelength_mean):
  
 
 #file="white_led_3_uni.txt"
-#file = "green_tungsten.txt"
+file = "green_tungsten.txt"
 #file="Output_data.txt"
 #file = "Hg_green_1.txt"
 #file = "Hg_yellow_1.txt"
