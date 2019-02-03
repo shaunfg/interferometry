@@ -36,7 +36,7 @@ for line in range(len(lines)):
     position.append(lines[line].split()[3])
 
 
-pl.plot(position,signal,'g-')
+pl.plot(position,signal,'gold')
 pl.xlabel("Position / mm")
 pl.ylabel("Signal / a.u.")
 
@@ -80,7 +80,7 @@ xx=xf[int(len(xf)/2+1):len(xf)]
 repx=dsamp/xx
 
 pl.figure(3)
-pl.plot(repx,abs(yf[int(len(xf)/2+1):len(xf)]),'g-')
+pl.plot(repx,abs(yf[int(len(xf)/2+1):len(xf)]),color = 'gold')
 pl.xlabel("Wavelength (m)")
 pl.ylabel("Amplitude / a.u.")
 

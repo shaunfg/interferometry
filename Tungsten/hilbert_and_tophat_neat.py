@@ -46,6 +46,8 @@ analytic_imag_signal = hilbert((np.imag(analytic_signal)))
 amplitude_envelope = np.abs(analytic_imag_signal)
 
 plt.figure()
+plt.ylabel("Signal (a.u.)")
+plt.xlabel("Postion in mm")
 plt.plot(position,np.imag(analytic_signal))
 plt.plot(position,amplitude_envelope)
 plt.plot(position,-amplitude_envelope)

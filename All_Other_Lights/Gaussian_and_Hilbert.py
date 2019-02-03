@@ -18,8 +18,8 @@ path = "/Users/ShaunGan/Desktop/interferometry/All_Other_Lights"
 os.chdir(path)
 
 # Define some test data which is close to Gaussian
-fname = 'blue_LED.txt'
-#fname = 'white_tungsten.txt'
+#fname = 'blue_LED.txt'
+fname = 'white_tungsten.txt'
 
 f = open(fname,'r')
 
@@ -86,7 +86,7 @@ plt.legend()
 x = position
 y = signal
 nsamp = len(x)
-sampling_speed = 0.005e-3 #m/s
+sampling_speed = 0.05e-3 #m/s
 dsamp = 2 * sampling_speed / 50 #times two as something due to the path length
 
 # take a fourier transform
@@ -112,7 +112,7 @@ repx=dsamp/xx
 repy=abs(yf[int(len(xf)/2+1):len(xf)])
 pl.figure(3)
 pl.plot(repx,repy)
-pl.xlabel("Wavelength (m)")
+pl.xlabel("Wavelength (mm)")
 pl.ylabel("Amplitude / a.u.")
 
 #%% Extracting data from plots
